@@ -5,10 +5,16 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class Staff {
+public class Staff extends Person {
+
+    public Staff(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }
     
 }

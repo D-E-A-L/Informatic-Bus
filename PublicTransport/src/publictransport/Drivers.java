@@ -5,10 +5,15 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class Drivers {
-    
+public class Drivers extends Staff {
+
+    public Drivers(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }  
 }

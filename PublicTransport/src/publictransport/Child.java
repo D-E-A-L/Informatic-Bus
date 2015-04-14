@@ -5,10 +5,17 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class Child {
+public class Child extends Customers {
+
+    public Child(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }
+
     
 }

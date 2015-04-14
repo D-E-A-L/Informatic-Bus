@@ -5,10 +5,15 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class Administratives {
-    
+public class Administratives extends Staff {
+
+    public Administratives(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }
 }
