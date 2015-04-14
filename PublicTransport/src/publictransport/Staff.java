@@ -11,10 +11,29 @@ import java.util.Date;
  *
  * @author CASPED
  */
-public class Staff extends Person {
-
+public abstract class Staff extends Person {
+    
+    private String idtrabajador;
+    private String cargo;
+   
     public Staff(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
         super(nombre, apellido, celulaid, numero, datocumple);
     }
+    
+    public void setIDTrabajador(String idtrabajador){
+        this.idtrabajador=idtrabajador;
+    }
+    
+    public String getIDTrabajador(){
+        return idtrabajador;
+    } 
+    
+    public void setCargo(String cargo){
+        this.cargo=cargo;
+    }
+    
+    public String getCargo(){
+        return cargo;
+    } 
     
 }
