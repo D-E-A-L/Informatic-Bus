@@ -16,24 +16,36 @@ import javax.swing.JPanel;
  */
 public class Interface extends JFrame implements ActionListener {
     public boolean termino; 
+    
     public JMenuBar barraMenu=new JMenuBar();
-    public JMenu stock=new JMenu("File");
-    public JMenuItem AddCustomer=new JMenuItem("Add Customer");
-    public JMenuItem generateQR=new JMenuItem("Generate QR");
+    
+    public JMenu pestania1=new JMenu("File");
+    public JMenuItem addCustomer=new JMenuItem("Add Customer");
+    public JMenuItem deleteCustomer=new JMenuItem("Delete Customer");
     public JMenuItem Exit=new JMenuItem("Exit");
+    
+    public JMenu pestania2=new JMenu("QR");
+    public JMenuItem generarQR=new JMenuItem("Abrir Generador QR");
+    
+    
     public Interface(){  
         super("Public Transport");
         setBounds(500,200,500,450);
         
-        AddCustomer.addActionListener(this);
-        generateQR.addActionListener(this);
+        addCustomer.addActionListener(this);
+        deleteCustomer.addActionListener(this);
         Exit.addActionListener(this);
         
-        stock.add(AddCustomer);
-        stock.add(generateQR);
-        stock.add(Exit);
+        generarQR.addActionListener(this);
         
-        barraMenu.add(stock);
+        pestania1.add(addCustomer);
+        pestania1.add(deleteCustomer);
+        pestania1.add(Exit);
+        
+        pestania2.add(generarQR);
+        
+        barraMenu.add(pestania1);
+        barraMenu.add(pestania2);
         setJMenuBar(barraMenu);
         
         setVisible(true);
@@ -47,19 +59,38 @@ public class Interface extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent eventos){
         
-        if(eventos.getSource()==AddCustomer){
+        if(eventos.getSource()==addCustomer){
             addCustomer();
         }
-        if(eventos.getSource()==generateQR){
-            System.out.println("Se está pulsando eliminar producto");
+        if(eventos.getSource()==deleteCustomer){
+           deleteCustomer(); 
         }
         if(eventos.getSource()==Exit)
-                dispose();
+            dispose();
+        
+        if(eventos.getSource()==generarQR){
+            generarQR();
+        }
     }
     
     public void addCustomer(){
         ListaPersona metodo = new ListaPersona();
-        //etodo.addCustomer("Customer");
-        System.out.println("Se está pulsando aderir producto");
+        System.out.println("Se está pulsando aderir cliente");
     }
+    
+    public void deleteCustomer(){
+        ListaPersona metodo = new ListaPersona();
+        System.out.println("Se está pulsando eliminar cliente");
+    }
+    
+    public void generarQR(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GeneradorQR().setVisible(true);
+            }
+        });
+        System.out.println("Se está pulsando generar");
+    }
+    
 }
