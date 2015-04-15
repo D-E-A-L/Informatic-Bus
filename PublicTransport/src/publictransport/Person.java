@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
  *
  * @author CASPED
  */
-public class Person {
+public abstract class Person {
     
     private final String nombre;
     private final String apellido;
