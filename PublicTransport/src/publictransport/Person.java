@@ -18,13 +18,15 @@ public abstract class Person {
     private final String nombre;
     private final String apellido;
     private final String celulaid;
+    private String celular;
     private final Date datocumple;
     //private String tipo;
     
-    public Person(String nombre,String apellido,String celulaid,Date datocumple){
+    public Person(String nombre,String apellido,String celulaid,String numero,Date datocumple){
         this.nombre=nombre;
         this.apellido=apellido;       
-        this.celulaid=celulaid;        
+        this.celulaid=celulaid; 
+        this.celular=numero;
         this.datocumple=datocumple;         
     }
 
@@ -38,6 +40,14 @@ public abstract class Person {
     
     public String getCelulaId(){
         return celulaid;
+    }
+    
+    public String getCelular(){
+        return celular;
+    }
+    
+    public void setCelular(String numero){
+        celular=numero;
     }
     
     public Date getDatoCumple(){
@@ -58,5 +68,11 @@ public abstract class Person {
             edad= edad-1;
         }
         return edad;
+    }
+    
+    public boolean checkCelulaID(String buscarCelula){
+        boolean verificar;
+        verificar=celulaid.equals(buscarCelula);
+        return verificar;
     }
 }

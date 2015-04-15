@@ -5,10 +5,15 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class OldMan {
-    
+public class OldMan extends Customers {
+
+    public OldMan(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }
 }

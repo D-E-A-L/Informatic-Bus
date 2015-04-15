@@ -5,10 +5,30 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class Drivers {
+public class Drivers extends Staff {
+    
+    public Bus busdesignado;
+
+    public Drivers(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }  
+    
+    public Bus getBusDesignado(){
+        return busdesignado;
+    }
+    
+    public void setBusDesignado(Bus busdesignado){
+        this.busdesignado=busdesignado;
+    }
+    
+    public void desasignarbus(){
+        busdesignado=null;
+    }
     
 }

@@ -5,10 +5,36 @@
  */
 package publictransport;
 
+import java.util.Date;
+
 /**
  *
  * @author CASPED
  */
-public class Administratives {
+public class Administratives extends Staff {
+    
+    public String antiguedad;
+    public String usuario;
+    public String contrasenia;
+
+    public Administratives(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+        super(nombre, apellido, celulaid, numero, datocumple);
+    }
+    
+    public String getUsuario(){
+        return usuario;
+    }
+    
+    public void setUsuario(String usuario){
+        this.usuario=usuario;
+    }
+    
+     public String getContrasenia(){
+        return contrasenia;
+    }
+    
+    public void setContrasenia(String contrasenia){
+        this.contrasenia=contrasenia;
+    }
     
 }
