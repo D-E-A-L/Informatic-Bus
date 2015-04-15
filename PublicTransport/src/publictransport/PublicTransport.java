@@ -17,6 +17,7 @@ public class PublicTransport {
      * @param args the command line arguments
      */  
     public static void main(String[] args) {
-        Interface admin=new Interface();
+       // Interface admin=new Interface();
+        new VisualShop();
     } 
 }
