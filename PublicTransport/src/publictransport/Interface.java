@@ -24,13 +24,13 @@ public class Interface extends JFrame implements ActionListener {
     public JMenuItem deleteCustomer=new JMenuItem("Delete Customer");
     public JMenuItem Exit=new JMenuItem("Exit");
     
-    public JMenu pestania2=new JMenu("QR");
-    public JMenuItem generarQR=new JMenuItem("Abrir Generador QR");
+    public JMenu pestania2=new JMenu("Diseñador");
+    public JMenuItem generarQR=new JMenuItem("Abrir Targuetero");
     
     
     public Interface(){  
         super("Public Transport");
-        setBounds(500,200,500,450);
+        setBounds(700,300,500,450);
         
         addCustomer.addActionListener(this);
         deleteCustomer.addActionListener(this);
@@ -87,7 +87,7 @@ public class Interface extends JFrame implements ActionListener {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GeneradorQR().setVisible(true);
+                new DesigningCards().setVisible(true);
             }
         });
         System.out.println("Se está pulsando generar");
