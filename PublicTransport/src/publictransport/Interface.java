@@ -25,7 +25,8 @@ public class Interface extends JFrame implements ActionListener {
     public JMenuItem Exit=new JMenuItem("Exit");
     
     public JMenu pestania2=new JMenu("Diseñador");
-    public JMenuItem generarQR=new JMenuItem("Abrir Targuetero");
+    public JMenuItem designingCards=new JMenuItem("Targuetero");
+    public JMenuItem designingQR=new JMenuItem("Tergetero QR");
     
     
     public Interface(){  
@@ -36,13 +37,15 @@ public class Interface extends JFrame implements ActionListener {
         deleteCustomer.addActionListener(this);
         Exit.addActionListener(this);
         
-        generarQR.addActionListener(this);
+        designingCards.addActionListener(this);
+        designingQR.addActionListener(this);
         
         pestania1.add(addCustomer);
         pestania1.add(deleteCustomer);
         pestania1.add(Exit);
         
-        pestania2.add(generarQR);
+        pestania2.add(designingCards);
+        pestania2.add(designingQR);
         
         barraMenu.add(pestania1);
         barraMenu.add(pestania2);
@@ -68,8 +71,12 @@ public class Interface extends JFrame implements ActionListener {
         if(eventos.getSource()==Exit)
             dispose();
         
-        if(eventos.getSource()==generarQR){
-            generarQR();
+        if(eventos.getSource()==designingCards){
+            designerCards();
+        } 
+        
+        if(eventos.getSource()==designingQR){
+            designerQR();
         }
     }
     
@@ -83,11 +90,21 @@ public class Interface extends JFrame implements ActionListener {
         System.out.println("Se está pulsando eliminar cliente");
     }
     
-    public void generarQR(){
+    public void designerCards(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 new DesigningCards().setVisible(true);
+            }
+        });
+        System.out.println("Se está pulsando targetero");
+    }
+    
+    public void designerQR(){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new DesigningQR().setVisible(true);
             }
         });
         System.out.println("Se está pulsando generar");
