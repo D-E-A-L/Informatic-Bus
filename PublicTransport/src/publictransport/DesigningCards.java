@@ -18,6 +18,7 @@ public class DesigningCards extends javax.swing.JFrame {
 
     ImageIcon Imagen[]=new ImageIcon[5];
     int cont=1;
+    String texto;
     
     public DesigningCards() {
         initComponents();
@@ -41,6 +42,14 @@ public class DesigningCards extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jtxtcodigo = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -53,6 +62,52 @@ public class DesigningCards extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 61, 66, 80));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("NOMBRE:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 72, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("APELLIDO:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 112, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("No.");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 142, -1, -1));
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 85, 140, -1));
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 125, 140, -1));
+
+        jtxtcodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jtxtcodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtcodigoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtxtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 157, 70, -1));
+
+        jButton6.setText("Cargar Fotografia");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 10, -1, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
@@ -74,8 +129,8 @@ public class DesigningCards extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        jButton3.setText("Llenar Tarjeta");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        jButton3.setText("Guardar BD");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jButton4.setText("Generar QR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +138,7 @@ public class DesigningCards extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 200, -1, -1));
 
         jTAsalida.setColumns(20);
         jTAsalida.setRows(5);
@@ -126,7 +181,8 @@ public class DesigningCards extends javax.swing.JFrame {
          java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GeneradorQR().setVisible(true);
+                texto=jtxtcodigo.getText();
+                new GeneradorQR(texto).setVisible(false);
             }
         });
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -134,6 +190,18 @@ public class DesigningCards extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Imprimir
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jtxtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtcodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtcodigoActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        jLabel2.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/foto.jpg")));
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,10 +245,18 @@ public class DesigningCards extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTAsalida;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jtxtcodigo;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -23,13 +23,16 @@ public class GeneradorQR extends javax.swing.JFrame {
     float margeninf=0.000f;
     int rotacion=0;
     float tamanio=5.000f;
-
+    static String texto;
     /**
      * Creates new form ProbarGeneradorQR
      */
-    public GeneradorQR() {
+    public GeneradorQR(String texto) {
         initComponents();
         setBounds(700, 300, 410, 150);
+        this.texto=texto;
+        System.out.println(texto);
+        generador(texto);
     }
 
     @SuppressWarnings("unchecked")
@@ -93,9 +96,13 @@ public class GeneradorQR extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtcodigoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String texto=jtxtcodigo.getText();
+        generador(texto);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void generador(String texto){
         try{
-            QRCode code=new QRCode();
-            String texto=jtxtcodigo.getText();
+            QRCode code=new QRCode();    
 
             code.setData(texto);            //MODE_BYTE
             code.setDataMode(QRCode.MODE_NUMERIC);
@@ -112,12 +119,11 @@ public class GeneradorQR extends javax.swing.JFrame {
             String imagen=System.getProperty("user.home")+"/Desktop/GitHub/Informatic-Bus/PublicTransport/build/classes/publictransport/imagenes/codigodemo.gif";
             code.renderBarcode(imagen);
             
-            Desktop mostrar=Desktop.getDesktop();
-            mostrar.open(new File(imagen));
+            //Desktop mostrar=Desktop.getDesktop();
+            //mostrar.open(new File(imagen));
         }
         catch(Exception e){}
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -143,7 +149,7 @@ public class GeneradorQR extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GeneradorQR().setVisible(true);
+                new GeneradorQR(texto).setVisible(true);
             }
         });
     }
