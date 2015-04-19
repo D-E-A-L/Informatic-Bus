@@ -5,10 +5,9 @@
  */
 package publictransport;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import Impresora.Imprimir_JPanel;
 import javax.swing.ImageIcon;
-import java.awt.print.*; 
+import javax.swing.JPanel;
 
 /**
  *
@@ -49,16 +48,15 @@ public class DesigningCards extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jtxtcodigo = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTAsalida = new javax.swing.JTextArea();
+        jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        imprimir = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,14 +99,6 @@ public class DesigningCards extends javax.swing.JFrame {
         });
         getContentPane().add(jtxtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 157, 70, -1));
 
-        jButton6.setText("Cargar Fotografia");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 10, -1, -1));
-
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 243, 153));
@@ -140,11 +130,13 @@ public class DesigningCards extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 200, -1, -1));
 
-        jTAsalida.setColumns(20);
-        jTAsalida.setRows(5);
-        jScrollPane1.setViewportView(jTAsalida);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 240, 150));
+        jButton6.setText("Cargar Fotografia");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 10, -1, -1));
 
         jButton5.setText("Imprimir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +149,10 @@ public class DesigningCards extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 240));
+
+        imprimir.setBackground(new java.awt.Color(51, 51, 255));
+        imprimir.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 243, 153));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,7 +184,12 @@ public class DesigningCards extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // Imprimir
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Imprimir_JPanel imprimir_JPanel = new Imprimir_JPanel(imprimir);
+            }
+        });
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -240,6 +241,7 @@ public class DesigningCards extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel imprimir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -252,8 +254,6 @@ public class DesigningCards extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTAsalida;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jtxtcodigo;
