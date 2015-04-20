@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package publictransport;
+package Interface;
 
 import Impresora.Imprimir_JPanel;
 import publictransport.*;
@@ -22,7 +22,7 @@ public class DesigningQR extends javax.swing.JFrame {
     public DesigningQR() {
         initComponents();
         setTitle("Targuetero");
-        setBounds(700, 300, 370, 290);
+        setBounds(700, 300, 700, 520);
         this.setLocationRelativeTo(null);
     }
 
@@ -30,19 +30,28 @@ public class DesigningQR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        imprimir = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        imprimir = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        imprimir.setBackground(new java.awt.Color(255, 255, 255));
+        imprimir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 243, 153));
+        jLabel1.setLabelFor(this);
+        jLabel1.setToolTipText("");
+        jLabel1.setAlignmentY(0.0F);
+        jLabel1.setDoubleBuffered(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(243, 153));
+        imprimir.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 486, 306));
+        jLabel1.getAccessibleContext().setAccessibleParent(this);
+
+        getContentPane().add(imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 510, 330));
 
         jButton1.setText("Cargar QR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +59,7 @@ public class DesigningQR extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         jButton2.setText("Imprimir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -58,17 +67,11 @@ public class DesigningQR extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/Cardw.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 250, 150));
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 240));
-        getContentPane().add(imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 243, 153));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,7 +137,6 @@ public class DesigningQR extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 
 }

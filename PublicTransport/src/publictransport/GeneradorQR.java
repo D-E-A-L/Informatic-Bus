@@ -22,7 +22,7 @@ public class GeneradorQR extends javax.swing.JFrame {
     float margensup=0.000f;
     float margeninf=0.000f;
     int rotacion=0;
-    float tamanio=5.000f;
+    float tamanio=10.000f;
     static String texto;
     /**
      * Creates new form ProbarGeneradorQR

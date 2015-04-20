@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package publictransport;
+package Interface;
 
 import Impresora.Imprimir_JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import publictransport.GeneradorQR;
 
 /**
  *
@@ -22,7 +23,7 @@ public class DesigningCards extends javax.swing.JFrame {
     public DesigningCards() {
         initComponents();
         setTitle("Targuetero");
-        setBounds(700, 300, 370, 290);
+        setBounds(700, 300, 700, 520);
         this.setLocationRelativeTo(null);
         
         for(int i=0;i<5;i++){
@@ -41,6 +42,7 @@ public class DesigningCards extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        imprimir = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -56,52 +58,59 @@ public class DesigningCards extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        imprimir = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        imprimir.setBackground(new java.awt.Color(255, 255, 255));
+        imprimir.setForeground(new java.awt.Color(255, 255, 255));
+        imprimir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 61, 66, 80));
+        imprimir.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 56, 132, 160));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("NOMBRE:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 72, -1, -1));
+        imprimir.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("APELLIDO:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 112, -1, -1));
+        imprimir.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("No.");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 142, -1, -1));
+        jLabel6.setVerifyInputWhenFocusTarget(false);
+        imprimir.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 85, 140, -1));
+        imprimir.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 260, 30));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 125, 140, -1));
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        imprimir.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 260, 30));
 
-        jtxtcodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jtxtcodigo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jtxtcodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtcodigoActionPerformed(evt);
             }
         });
-        getContentPane().add(jtxtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 157, 70, -1));
+        imprimir.add(jtxtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 270, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 243, 153));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/card2.png"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(243, 153));
+        imprimir.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 486, 306));
+
+        getContentPane().add(imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 510, 330));
 
         jButton1.setText("Anterior");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +118,7 @@ public class DesigningCards extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         jButton2.setText("Siguiente");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -117,10 +126,15 @@ public class DesigningCards extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 30, -1, -1));
 
-        jButton3.setText("Guardar BD");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        jButton3.setText("Limpiar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, -1, -1));
 
         jButton4.setText("Generar QR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +142,7 @@ public class DesigningCards extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 200, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, -1, -1));
 
         jButton6.setText("Cargar Fotografia");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +150,7 @@ public class DesigningCards extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 10, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         jButton5.setText("Imprimir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -144,15 +158,11 @@ public class DesigningCards extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, -1, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 240));
-
-        imprimir.setBackground(new java.awt.Color(51, 51, 255));
-        imprimir.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 243, 153));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,6 +213,14 @@ public class DesigningCards extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         jLabel2.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/foto.jpg")));
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // setIcon(null);
+        jLabel2.setIcon(null);
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jtxtcodigo.setText(null);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

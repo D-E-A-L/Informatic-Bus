@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package publictransport;
+package Interface;
 
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.JPanel; 
+import publictransport.ListaPersona;
 
 /**
  *
@@ -24,14 +25,14 @@ public class Interface extends JFrame implements ActionListener {
     public JMenuItem deleteCustomer=new JMenuItem("Delete Customer");
     public JMenuItem Exit=new JMenuItem("Exit");
     
-    public JMenu pestania2=new JMenu("Diseñador");
-    public JMenuItem designingCards=new JMenuItem("Targuetero");
-    public JMenuItem designingQR=new JMenuItem("Tergetero QR");
+    public JMenu pestania2=new JMenu("Targuetero");
+    public JMenuItem designingCards=new JMenuItem("New Targuet");
+    public JMenuItem designingQR=new JMenuItem("QR Terget");
     
     
     public Interface(){  
         super("Public Transport");
-        setBounds(700,300,500,450);
+        setBounds(600,220,800,600);
         
         addCustomer.addActionListener(this);
         deleteCustomer.addActionListener(this);
