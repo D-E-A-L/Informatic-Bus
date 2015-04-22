@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.JPanel; 
-import publictransport.ListaPersona;
+import publicTransportModel.ListaPersona;
 
 /**
  *

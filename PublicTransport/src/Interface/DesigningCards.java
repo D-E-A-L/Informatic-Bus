@@ -8,7 +8,7 @@ package Interface;
 import Impresora.Imprimir_JPanel;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import publictransport.GeneradorQR;
+import publicTransportModel.GeneradorQR;
 
 /**
  *

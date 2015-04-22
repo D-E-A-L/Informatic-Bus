@@ -6,7 +6,6 @@
 package Interface;
 
 import Impresora.Imprimir_JPanel;
-import publictransport.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
