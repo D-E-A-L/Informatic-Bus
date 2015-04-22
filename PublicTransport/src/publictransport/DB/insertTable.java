@@ -1,17 +1,58 @@
 package publictransport.DB;
 import publicTransportModel.*;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 
 public class insertTable {
 
     public insertTable() {
     }
     
-    public void insertPersona(Person el)
+    private double costoPasaje(String Tusuario)
     {
-        
+        double resp = 2;
+        switch(Tusuario)
+        {
+            case "nino": resp = 1;
+            break;
+            case "Colegio": resp = 1.5;
+            break;   
+            case "Universitario": resp = 1.8;
+            break;
+            case "Tercera Edad": resp = 1.5;
+            break;
+        }
+        return resp;
+    }
+    
+    public void insertPersona(int ci, String nombre, String apellidos, 
+            String celular, String fecNac, String TUsuario, double saldo) throws SQLException
+    {
+        double costo = costoPasaje(TUsuario);
+        Connection conexion= DBConector.GetConnection() ;
+	String query = " insert into Cliente (ci, nombre, apellido, celular, "
+                + "fechaNacimiento, tipoUsuario, costoPasaje, saldoDisponible)"
+        + " values (?, ?, ?, ?, ?, ?, ?, ?)";
+       
+      // create the mysql insert preparedstatement
+      PreparedStatement preparedStmt = conexion.prepareStatement(query);
+      preparedStmt.setInt(1, ci);
+      preparedStmt.setString (2, nombre);
+      preparedStmt.setString (3, apellidos);
+      preparedStmt.setString (4, celular);
+      preparedStmt.setString (5, fecNac);
+      preparedStmt.setString (6, TUsuario);
+      preparedStmt.setDouble (7, costo);
+      preparedStmt.setDouble (8, saldo);
+
+      // execute the preparedstatement
+      preparedStmt.execute();
     }
     
     public void createTable()
@@ -22,7 +63,6 @@ public class insertTable {
        conn = DBConector.GetConnection();
       
       //STEP 4: Execute a query
-      System.out.println("Creating table in given database...");
       stmt = conn.createStatement();
       
       String sql = "CREATE TABLE Cliente " +
@@ -30,14 +70,15 @@ public class insertTable {
                    " nombre VARCHAR(25), " + 
                    " apellido VARCHAR(25), " + 
                    " celular VARCHAR(10), " +
-                   " fechaNacimiento DATE, " +
+                   " fechaNacimiento VARCHAR(10), " +
                    " tipoUsuario VARCHAR(15), " +
-                   " costoPasaje INTEGER, " +
-                   " saldoDisponible INTEGER, " +
+                   " costoPasaje DOUBLE, " +
+                   " saldoDisponible DOUBLE, " +
+                   //" imagen LONGBLOB, " +
                    " PRIMARY KEY ( ci ))"; 
 
       stmt.executeUpdate(sql);
-      System.out.println("Created table in given database...");
+      System.out.println("tabla creada...");
    }catch(SQLException se){
       //Handle errors for JDBC
       se.printStackTrace();
