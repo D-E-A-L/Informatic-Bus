@@ -1,4 +1,5 @@
 package publictransport.DB;
+import publicTransportModel.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,6 +9,10 @@ public class insertTable {
     public insertTable() {
     }
     
+    public void insertPersona(Person el)
+    {
+        
+    }
     
     public void createTable()
     {
