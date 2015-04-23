@@ -1,31 +1,39 @@
 package publictransport.DB;
 
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class LectorAndroid {
     public static void main(String[] args) {
         try {
             /* Establece la conexion */
             Socket socket = new Socket("10.0.0.4", 8888);
-            /* Stream para enviar datos */
-            OutputStream os = socket.getOutputStream();
-            /* Stream para recibir datos */
-            InputStream is = socket.getInputStream();
-            /* Leemos el mensage del servidor mientras exista conexion y no llegue el caracter '.' */
-            int c;
-            while( (c = is.read()) != -1  && !String.valueOf((char)c).equals("."))
-                System.out.print((char)c);
-            /* Enviamos un mensaje al servidor */
-            String x = "Hola Servidor...";
-            os.write(x.getBytes());
-            os.flush();
+            /* Stream para enviar objetos */
+            ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+            /* Stream para recibir objetos */
+            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+            /* Creamos una instancia de la clase Scanner para leer cadenas desde consola */
+            Scanner scanner = new Scanner(System.in);
+            /* Enviamos 10 solicitudes al servidor y leemos 10 respuestas*/
+            for(int i = 0; i < 10; i++) {
+                /* Leemos una linea desde consola */
+                String request = scanner.nextLine();
+                /* Enviamos la linea al servidor*/
+                oos.writeObject(request);
+                oos.flush();
+                /* Leemos la respuesta del servidor */
+                String response = (String) ois.readObject();
+                /* Imprimimos la respuesta */
+                System.out.println("Response:"+response);
+            }
             /* Cerramos los streams y el socket */
-            os.close();
-            is.close();
+            oos.close();
+            ois.close();
             socket.close();
-        } catch(Exception ex) {
+        } catch(Exception e) {
+
         }
     }
 }
