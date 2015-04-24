@@ -23,6 +23,7 @@ public class DesigningQR extends javax.swing.JFrame {
         setTitle("Targuetero");
         setBounds(700, 300, 700, 520);
         this.setLocationRelativeTo(null);
+        jLabel0.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/Cardw.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -31,11 +32,11 @@ public class DesigningQR extends javax.swing.JFrame {
 
         imprimir = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel0 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imprimir.setBackground(new java.awt.Color(255, 255, 255));
@@ -49,6 +50,14 @@ public class DesigningQR extends javax.swing.JFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(243, 153));
         imprimir.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 486, 306));
         jLabel1.getAccessibleContext().setAccessibleParent(this);
+
+        jLabel0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel0.setLabelFor(this);
+        jLabel0.setToolTipText("");
+        jLabel0.setAlignmentY(0.0F);
+        jLabel0.setDoubleBuffered(true);
+        jLabel0.setPreferredSize(new java.awt.Dimension(243, 153));
+        imprimir.add(jLabel0, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 486, 306));
 
         getContentPane().add(imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 510, 330));
 
@@ -134,6 +143,7 @@ public class DesigningQR extends javax.swing.JFrame {
     private javax.swing.JPanel imprimir;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

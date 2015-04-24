@@ -17,7 +17,7 @@ import publicTransportModel.GeneradorQR;
 public class DesigningCards extends javax.swing.JFrame {
 
     ImageIcon Imagen[]=new ImageIcon[5];
-    int cont=1;
+    int cont=1; 
     String texto;
     
     public DesigningCards() {
@@ -47,8 +47,8 @@ public class DesigningCards extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextNombre = new javax.swing.JTextField();
+        jTextApellido = new javax.swing.JTextField();
         jtxtcodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -59,7 +59,6 @@ public class DesigningCards extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imprimir.setBackground(new java.awt.Color(255, 255, 255));
@@ -86,16 +85,16 @@ public class DesigningCards extends javax.swing.JFrame {
         jLabel6.setVerifyInputWhenFocusTarget(false);
         imprimir.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextNombreActionPerformed(evt);
             }
         });
-        imprimir.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 260, 30));
+        imprimir.add(jTextNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 260, 30));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        imprimir.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 260, 30));
+        jTextApellido.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        imprimir.add(jTextApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 260, 30));
 
         jtxtcodigo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jtxtcodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +183,7 @@ public class DesigningCards extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
                 texto=jtxtcodigo.getText();
@@ -202,9 +201,9 @@ public class DesigningCards extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
+        // Nombre
+    }//GEN-LAST:event_jTextNombreActionPerformed
 
     private void jtxtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtcodigoActionPerformed
         // TODO add your handling code here:
@@ -217,8 +216,8 @@ public class DesigningCards extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // setIcon(null);
         jLabel2.setIcon(null);
-        jTextField1.setText(null);
-        jTextField2.setText(null);
+        jTextNombre.setText(null);
+        jTextApellido.setText(null);
         jtxtcodigo.setText(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -272,8 +271,8 @@ public class DesigningCards extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextApellido;
+    private javax.swing.JTextField jTextNombre;
     private javax.swing.JTextField jtxtcodigo;
     // End of variables declaration//GEN-END:variables
 
