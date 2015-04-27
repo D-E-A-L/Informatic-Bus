@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author CASPED
  */
-public class PublicTransport {
+public class Main {
 
     /**
      * @param args the command line arguments

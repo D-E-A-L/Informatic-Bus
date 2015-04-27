@@ -102,14 +102,19 @@ public class Interface extends JFrame implements ActionListener {
         //ListaPersona metodo = new ListaPersona();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewPerson().setVisible(true);
+                new AddCliente().setVisible(true);
             }
         });
         System.out.println("Se está pulsando aderir cliente");
     }
     
     public void deleteCustomer(){
-        ListaPersona metodo = new ListaPersona();
+        //ListaPersona metodo = new ListaPersona();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new DeleteCliente().setVisible(true);
+            }
+        });
         System.out.println("Se está pulsando eliminar cliente");
     }
     

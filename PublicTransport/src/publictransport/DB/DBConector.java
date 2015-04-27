@@ -7,9 +7,11 @@ import javax.swing.JOptionPane;
 
 
 public class DBConector {
+    
+    static Connection conexion=null;
+    
     public static Connection GetConnection()
     {
-        Connection conexion=null;
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
@@ -39,6 +41,16 @@ public class DBConector {
         {
             return conexion;
         }
+    }
+    
+    public Connection getConnection(){
+        System.out.println("La conexion esta establecida con el servido");
+        return conexion;
+    }
+    
+    public void desconectar(){
+        conexion = null;
+        System.out.println("La conexion a la  base de datos a terminado");
     }
     
 }

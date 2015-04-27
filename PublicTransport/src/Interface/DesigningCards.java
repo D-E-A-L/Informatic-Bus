@@ -6,9 +6,16 @@
 package Interface;
 
 import Impresora.Imprimir_JPanel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import publicTransportModel.GeneradorQR;
+import publictransport.DB.DBConector;
+import publictransport.DB.Tableo;
 
 /**
  *
@@ -19,6 +26,9 @@ public class DesigningCards extends javax.swing.JFrame {
     ImageIcon Imagen[]=new ImageIcon[5];
     int cont=1; 
     String texto;
+    String cedula;
+    String nombre;
+    String apellidos;
     
     public DesigningCards() {
         initComponents();
@@ -57,8 +67,10 @@ public class DesigningCards extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jtxtcedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imprimir.setBackground(new java.awt.Color(255, 255, 255));
@@ -143,13 +155,13 @@ public class DesigningCards extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, -1, -1));
 
-        jButton6.setText("Cargar Fotografia");
+        jButton6.setText("Cargar Datos");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         jButton5.setText("Imprimir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +170,16 @@ public class DesigningCards extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, -1, -1));
+
+        jtxtcedula.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
+        jtxtcedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxtcedula.setText("Introducir Cedula");
+        jtxtcedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtcedulaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtxtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 32, 120, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
@@ -202,7 +224,14 @@ public class DesigningCards extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreActionPerformed
-        // Nombre
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                NewPerson newPerson = new NewPerson();
+                nombre=newPerson.getNombre();
+                jTextNombre.setText(nombre);
+            }
+        });*/
     }//GEN-LAST:event_jTextNombreActionPerformed
 
     private void jtxtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtcodigoActionPerformed
@@ -210,7 +239,24 @@ public class DesigningCards extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxtcodigoActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        
+        Tableo datoscliente = new Tableo();
+        
+        this.cedula=jtxtcedula.getText();
+        
         jLabel2.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/foto.jpg")));
+
+        nombre=datoscliente.getNombre(this.cedula);
+        apellidos=datoscliente.getApellido(this.cedula);
+        
+        jTextNombre.setText(nombre);
+        jTextApellido.setText(apellidos);
+        jtxtcodigo.setText(this.cedula);
+                
+        System.out.println("nombre:" + nombre);
+        System.out.println("apellido:" + apellidos);
+        System.out.println("cedula:" + texto);
+              
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -220,6 +266,10 @@ public class DesigningCards extends javax.swing.JFrame {
         jTextApellido.setText(null);
         jtxtcodigo.setText(null);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jtxtcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtcedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtcedulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,6 +323,7 @@ public class DesigningCards extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextApellido;
     private javax.swing.JTextField jTextNombre;
+    private javax.swing.JTextField jtxtcedula;
     private javax.swing.JTextField jtxtcodigo;
     // End of variables declaration//GEN-END:variables
 

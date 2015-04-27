@@ -7,17 +7,17 @@ import java.util.logging.Logger;
 import java.sql.*;
 import publictransport.DB.*;
 
-public class NewPerson extends javax.swing.JFrame {
+public class AddCliente extends javax.swing.JFrame {
     
-    int ci;
-    String nombre;
-    String apellido;
-    String telefono;
-    String TipoUsuario;
-    double saldo;
-    String fecha;
+    public String cedula;
+    public String nombre;
+    public String apellido;
+    public String telefono;
+    public String TipoUsuario;
+    public double saldo;
+    public String fecha;
 
-    public NewPerson() {
+    public AddCliente() {
         initComponents();
         setTitle("Nuevo Cliente");
         setBounds(700, 300, 700, 520);
@@ -46,6 +46,7 @@ public class NewPerson extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("nuevo cliente");
         setPreferredSize(new java.awt.Dimension(580, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,26 +132,32 @@ public class NewPerson extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
-        insertTable insertador = new insertTable();
+        Tableo insertador = new Tableo();
         //SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        ci = Integer.valueOf( ciField.getText());
+        cedula=ciField.getText();
         nombre = nombreField.getText();
         apellido = apellidosField.getText();
         telefono = telefonoField.getText();
         TipoUsuario = (String)TUsuarioBox.getSelectedItem();
-        System.out.println(TipoUsuario);
         saldo = Double.valueOf(saldoField.getText());
         fecha = fechaNacField.getText();
+        
+        System.out.println(this.TipoUsuario);
+        System.out.println(this.nombre);
+        System.out.println(this.apellido);
+        System.out.println(this.cedula);
+        
+
         /*Date fecha = null;
         try {
             fecha = formatter.parse(fechaNacField.getText());
         } catch (ParseException ex) {
-            Logger.getLogger(NewPerson.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddCliente.class.getName()).log(Level.SEVERE, null, ex);
         }*/
         try {        
-            insertador.insertPersona(ci, nombre, apellido, telefono, fecha, TipoUsuario, saldo);
+            insertador.insertCliente(cedula, nombre, apellido, telefono, fecha, TipoUsuario, saldo);
         } catch (SQLException ex) {
-            Logger.getLogger(NewPerson.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_guardarBtnActionPerformed
 
@@ -177,25 +184,31 @@ public class NewPerson extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewPerson.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewPerson.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewPerson.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewPerson.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewPerson().setVisible(true);
+                new AddCliente().setVisible(true);
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox TUsuarioBox;
     private javax.swing.JTextField apellidosField;
