@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import publicTransportModel.GeneradorQR;
+import GeneradorQR.GeneradorQR;
 import publictransport.DB.DBConector;
 import publictransport.DB.Tableo;
 
@@ -25,10 +25,6 @@ public class DesigningCards extends javax.swing.JFrame {
 
     ImageIcon Imagen[]=new ImageIcon[5];
     int cont=1; 
-    String texto;
-    String cedula;
-    String nombre;
-    String apellidos;
     
     public DesigningCards() {
         initComponents();
@@ -173,7 +169,7 @@ public class DesigningCards extends javax.swing.JFrame {
 
         jtxtcedula.setFont(new java.awt.Font("Tahoma", 2, 13)); // NOI18N
         jtxtcedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jtxtcedula.setText("Introducir Cedula");
+        jtxtcedula.setToolTipText("");
         jtxtcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtcedulaActionPerformed(evt);
@@ -205,10 +201,11 @@ public class DesigningCards extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
-                texto=jtxtcodigo.getText();
+                String texto=jtxtcedula.getText();
+                System.out.println("Generar QR:" + texto);
                 new GeneradorQR(texto).setVisible(false);
             }
         });
@@ -242,20 +239,20 @@ public class DesigningCards extends javax.swing.JFrame {
         
         Tableo datoscliente = new Tableo();
         
-        this.cedula=jtxtcedula.getText();
+        String cedula=jtxtcedula.getText();
         
         jLabel2.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/foto.jpg")));
 
-        nombre=datoscliente.getNombre(this.cedula);
-        apellidos=datoscliente.getApellido(this.cedula);
+        String nombre=datoscliente.getNombre(cedula);
+        String apellidos=datoscliente.getApellido(cedula);
         
         jTextNombre.setText(nombre);
         jTextApellido.setText(apellidos);
-        jtxtcodigo.setText(this.cedula);
+        jtxtcodigo.setText(cedula);
                 
         System.out.println("nombre:" + nombre);
         System.out.println("apellido:" + apellidos);
-        System.out.println("cedula:" + texto);
+        System.out.println("cedula:" + cedula);
               
     }//GEN-LAST:event_jButton6ActionPerformed
 

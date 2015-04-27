@@ -87,7 +87,6 @@ public class DeleteCliente extends javax.swing.JFrame {
 
         ciField.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
         ciField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        ciField.setText("Introducir Cedula");
         ciField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ciFieldActionPerformed(evt);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package publicTransportModel;
+package GeneradorQR;
 
 import com.barcodelib.barcode.QRCode;
 import java.awt.Desktop;
@@ -115,12 +115,13 @@ public class GeneradorQR extends javax.swing.JFrame {
             code.setBottomMargin(margeninf);
             code.setRotate(rotacion);
             code.setModuleSize(tamanio);
-           
-            String imagen=System.getProperty("user.home")+"/Desktop/GitHub/Informatic-Bus/PublicTransport/build/classes/publictransport/imagenes/codigodemo.gif";
+                                                                                                         //src build                     
+            String imagen=System.getProperty("user.home")+"/Desktop/GitHub/Informatic-Bus/PublicTransport/build/classes/publictransport/imagenes/codigodemo.png";
             code.renderBarcode(imagen);
+            System.out.println("Generando QR... ... ...");
             
-            //Desktop mostrar=Desktop.getDesktop();
-            //mostrar.open(new File(imagen));
+            Desktop mostrar=Desktop.getDesktop();
+            mostrar.open(new File(imagen));
         }
         catch(Exception e){}
     }
