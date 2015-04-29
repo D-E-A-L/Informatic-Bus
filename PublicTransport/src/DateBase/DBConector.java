@@ -1,4 +1,4 @@
-package publictransport.DB;
+package DateBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

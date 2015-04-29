@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package Interface;
+import DateBase.Tableo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
-import publictransport.DB.*;
+import javax.swing.Timer;
  
 /**
  *
@@ -25,6 +26,7 @@ public class DeleteCliente extends javax.swing.JFrame {
     public String TipoUsuario;
     public double saldo;
     public String fecha;
+    public String vacio="";
     
     public DeleteCliente() {
         initComponents();
@@ -42,6 +44,9 @@ public class DeleteCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mensaje2 = new javax.swing.JLabel();
+        mensaje1 = new javax.swing.JLabel();
+        mensaje = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -59,6 +64,16 @@ public class DeleteCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mensaje2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        getContentPane().add(mensaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 170, 20));
+
+        mensaje1.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        mensaje1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(mensaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 370, 20));
+
+        mensaje.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        getContentPane().add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 180, 20));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Gadugi", 1, 28)); // NOI18N
@@ -137,23 +152,42 @@ public class DeleteCliente extends javax.swing.JFrame {
         Tableo datoscliente = new Tableo();
         
         cedula=ciField.getText();
-        System.out.println("bucando cliente con cedula: "+this.cedula);  
-        /*
-        try {
-            datoscliente.getDatos(cedula);
-        } catch (SQLException ex) {
-            Logger.getLogger(DeleteCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        
+        if(ciField.getText().length()==0){ 
+            
+            mensaje.setText("Introducir Cedula...");
+            mensaje1.setText(vacio);
+            mensaje2.setText(vacio);
+            
+            nombreField.setText(vacio);
+            apellidosField.setText(vacio);
+            fechaNacField.setText(vacio);
+            telefonoField.setText(vacio);
+            
+        }else{    
+            mensaje.setText("Buscando Cliente ["+cedula+"]...");
+           
+            nombre=datoscliente.getNombre(cedula);
+            apellido=datoscliente.getApellido(cedula);
+            fecha=datoscliente.getFecha(cedula);
+            telefono=datoscliente.getTelefono(cedula);
 
-        nombre=datoscliente.getNombre(cedula);
-        apellido=datoscliente.getApellido(cedula);
-        fecha=datoscliente.getFecha(cedula);
-        telefono=datoscliente.getTelefono(cedula);
-                
-        nombreField.setText(nombre);
-        apellidosField.setText(apellido);
-        fechaNacField.setText(fecha);
-        telefonoField.setText(telefono);
+            nombreField.setText(nombre);
+            apellidosField.setText(apellido);
+            fechaNacField.setText(fecha);
+            telefonoField.setText(telefono);
+            System.out.println("bucando cliente con cedula: "+this.cedula);  
+            
+            ciField.setText(vacio);
+            
+            if(nombreField.getText().length()==0){ 
+                mensaje1.setText("No existe el cliente en la base de datos...");
+                mensaje2.setText("Cedula:["+cedula+"]");
+            }else{
+                mensaje1.setText(vacio);
+                mensaje2.setText(vacio);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ciFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciFieldActionPerformed
@@ -161,9 +195,24 @@ public class DeleteCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_ciFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
         Tableo elimindor = new Tableo();
-        elimindor.deleteCliente(this.cedula);
-        System.out.println("Se elimino la persona con la cedula "+this.cedula);
+        
+        if(nombreField.getText().length()==0){ 
+            mensaje1.setText("ERROR: no se puede eliminar");
+            mensaje2.setText(vacio);
+        }else{
+            elimindor.deleteCliente(this.cedula);
+            mensaje1.setText("Elimiando cliente de la base de datos...");
+            mensaje2.setText("Cedula: "+cedula);
+            
+            nombreField.setText(vacio);
+            apellidosField.setText(vacio);
+            fechaNacField.setText(vacio);
+            telefonoField.setText(vacio);
+            
+            System.out.println("Se elimino la persona con la cedula "+this.cedula);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -215,6 +264,9 @@ public class DeleteCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel mensaje;
+    private javax.swing.JLabel mensaje1;
+    private javax.swing.JLabel mensaje2;
     private javax.swing.JTextField nombreField;
     private javax.swing.JTextField telefonoField;
     // End of variables declaration//GEN-END:variables

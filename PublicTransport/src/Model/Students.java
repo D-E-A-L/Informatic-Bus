@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package publicTransportModel;
+package Model;
 
 import java.util.Date;
 
@@ -11,9 +11,9 @@ import java.util.Date;
  *
  * @author CASPED
  */
-public class School extends Students {
+public class Students extends Customers {
 
-    public School(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
+    public Students(String nombre, String apellido, String celulaid, String numero, Date datocumple) {
         super(nombre, apellido, celulaid, numero, datocumple);
     }
 }

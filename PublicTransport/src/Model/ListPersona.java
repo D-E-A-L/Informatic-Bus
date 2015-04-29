@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package publicTransportModel;
+package Model;
 
 import java.util.Arrays;
 
@@ -11,11 +11,11 @@ import java.util.Arrays;
  *
  * @author CASPED
  */
-public class ListaPersona {
+public class ListPersona {
     public Person[] persona;
     private int amountPersona;
     
-    public ListaPersona(){
+    public ListPersona(){
         persona = new Person[200];
         amountPersona = 0;
     }
@@ -60,7 +60,7 @@ public class ListaPersona {
             return false;
         }
         
-        ListaPersona ListaPersonaCompare = (ListaPersona) obj;
+        ListPersona ListaPersonaCompare = (ListPersona) obj;
         
         boolean sonEquals=false;
         if (this.amountPersona==ListaPersonaCompare.amountPersona){

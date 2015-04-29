@@ -1,7 +1,8 @@
-package publictransport.DB;
+package DB.Android;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import DateBase.SocketClientThread;
 
 public class ServerToAndroid {
     public static void main(String[] args) {

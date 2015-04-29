@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.JPanel; 
-import publicTransportModel.ListaPersona;
+import Model.ListPersona;
 
 /**
  *
@@ -22,6 +22,7 @@ public class Interface extends JFrame implements ActionListener {
     public JMenuBar barraMenu=new JMenuBar();
     
     public JMenu pestania1=new JMenu("Archivo");
+    public JMenuItem loguearse=new JMenuItem("Administrador");
     public JMenuItem addCustomer=new JMenuItem("Nuevo Cliente");
     public JMenuItem deleteCustomer=new JMenuItem("Eliminar Cliente");
     public JMenuItem Exit=new JMenuItem("Exit");
@@ -32,12 +33,14 @@ public class Interface extends JFrame implements ActionListener {
     
     private javax.swing.JLabel jLabel1;
     JFrame panelillo=new JFrame();
+    JPanel panel = new javax.swing.JPanel();
     
     public Interface(){  
         initComponents();
         panelillo.setTitle("Public Transport");
         panelillo.setBounds(600, 220, 718, 590);
         
+        loguearse.addActionListener(this);
         addCustomer.addActionListener(this);
         deleteCustomer.addActionListener(this);
         Exit.addActionListener(this);
@@ -45,6 +48,7 @@ public class Interface extends JFrame implements ActionListener {
         designingCards.addActionListener(this);
         designingQR.addActionListener(this);
         
+        pestania1.add(loguearse);
         pestania1.add(addCustomer);
         pestania1.add(deleteCustomer);
         pestania1.add(Exit);
@@ -63,9 +67,9 @@ public class Interface extends JFrame implements ActionListener {
     } 
     
     private void initComponents() {
- 
-        jLabel1 = new javax.swing.JLabel();
         
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
@@ -79,6 +83,9 @@ public class Interface extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent eventos){
         
+        if(eventos.getSource()==loguearse){
+            loguearseUser();
+        }
         if(eventos.getSource()==addCustomer){
             addCustomer();
         }
@@ -99,8 +106,16 @@ public class Interface extends JFrame implements ActionListener {
         }
     }
     
+    public void loguearseUser(){
+        panelillo.getContentPane().remove(jLabel1);
+        panel= new Login();
+        panelillo.getContentPane().add(panel);
+        panelillo.setVisible(true);
+        System.out.println("Se está pulsando administrador");
+    }
+    
     public void addCustomer(){
-        //ListaPersona metodo = new ListaPersona();
+        //ListaPersona metodo = new ListPersona();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AddCliente().setVisible(true);
@@ -110,7 +125,7 @@ public class Interface extends JFrame implements ActionListener {
     }
     
     public void deleteCustomer(){
-        //ListaPersona metodo = new ListaPersona();
+        //ListaPersona metodo = new ListPersona();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DeleteCliente().setVisible(true);

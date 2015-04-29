@@ -1,11 +1,11 @@
 package Interface;
+import DateBase.Tableo;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
-import publictransport.DB.*;
 
 public class AddCliente extends javax.swing.JFrame {
     
@@ -16,6 +16,7 @@ public class AddCliente extends javax.swing.JFrame {
     public String TipoUsuario;
     public double saldo;
     public String fecha;
+    public String vacio="";
 
     public AddCliente() {
         initComponents();
@@ -28,6 +29,7 @@ public class AddCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mensaje = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         ciField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -48,8 +50,11 @@ public class AddCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("nuevo cliente");
-        setPreferredSize(new java.awt.Dimension(580, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mensaje.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        mensaje.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, 260, 20));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("CEDULA DE IDENTIDAD:");
@@ -133,31 +138,44 @@ public class AddCliente extends javax.swing.JFrame {
 
     private void guardarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBtnActionPerformed
         Tableo insertador = new Tableo();
-        //SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        cedula=ciField.getText();
-        nombre = nombreField.getText();
-        apellido = apellidosField.getText();
-        telefono = telefonoField.getText();
-        TipoUsuario = (String)TUsuarioBox.getSelectedItem();
-        saldo = Double.valueOf(saldoField.getText());
-        fecha = fechaNacField.getText();
-        
-        System.out.println(this.TipoUsuario);
-        System.out.println(this.nombre);
-        System.out.println(this.apellido);
-        System.out.println(this.cedula);
-        
+        if(ciField.getText().length()==0 && nombreField.getText().length()==0
+            && apellidosField.getText().length()==0 && telefonoField.getText().length()==0
+            && saldoField.getText().length()==0 && fechaNacField.getText().length()==0){ 
+            
+            mensaje.setText("LLenar todas las cassilla antes de guardar...");
+        }else{
+            if(ciField.getText().length()!=0 && nombreField.getText().length()!=0
+                && apellidosField.getText().length()!=0 && telefonoField.getText().length()!=0
+                && saldoField.getText().length()!=0 && fechaNacField.getText().length()!=0){
+                
+                cedula=ciField.getText();
+                nombre = nombreField.getText();
+                apellido = apellidosField.getText();
+                telefono = telefonoField.getText();
+                TipoUsuario = (String)TUsuarioBox.getSelectedItem();
+                saldo = Double.valueOf(saldoField.getText());
+                fecha = fechaNacField.getText();
 
-        /*Date fecha = null;
-        try {
-            fecha = formatter.parse(fechaNacField.getText());
-        } catch (ParseException ex) {
-            Logger.getLogger(AddCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        try {        
-            insertador.insertCliente(cedula, nombre, apellido, telefono, fecha, TipoUsuario, saldo);
-        } catch (SQLException ex) {
-            Logger.getLogger(AddCliente.class.getName()).log(Level.SEVERE, null, ex);
+                mensaje.setText("Guardando datos del cliente en la BD...");
+
+                System.out.println(this.TipoUsuario);
+                System.out.println(this.nombre);
+                System.out.println(this.apellido);
+                System.out.println(this.cedula);
+
+                try {        
+                    insertador.insertCliente(cedula, nombre, apellido, telefono, fecha, TipoUsuario, saldo);
+                    ciField.setText(vacio);
+                    nombreField.setText(vacio);
+                    apellidosField.setText(vacio);
+                    telefonoField.setText(vacio);
+                    saldoField.setText(vacio);
+                    fechaNacField.setText(vacio);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        
         }
     }//GEN-LAST:event_guardarBtnActionPerformed
 
@@ -224,6 +242,7 @@ public class AddCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel mensaje;
     private javax.swing.JTextField nombreField;
     private javax.swing.JTextField saldoField;
     private javax.swing.JTextField telefonoField;

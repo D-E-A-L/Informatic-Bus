@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Impresora.Imprimir_JPanel;
+import Printer.Imprimir_JPanel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -13,9 +13,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import GeneradorQR.GeneradorQR;
-import publictransport.DB.DBConector;
-import publictransport.DB.Tableo;
+import QRGenerador.GeneradorQR;
+import DateBase.DBConector;
+import DateBase.Tableo;
 
 /**
  *

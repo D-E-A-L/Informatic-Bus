@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Impresora.Imprimir_JPanel;
+import Printer.Imprimir_JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.ImageIcon;
