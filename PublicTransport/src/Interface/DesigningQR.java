@@ -25,7 +25,7 @@ public class DesigningQR extends javax.swing.JFrame {
         setTitle("Targuetero");
         setBounds(700, 300, 700, 520);
         this.setLocationRelativeTo(null);
-        jLabel0.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/Cardw.png")));
+        jLabel0.setIcon(new ImageIcon (getClass().getResource("/Images/Cardw.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -90,7 +90,7 @@ public class DesigningQR extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fondo.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
 
         pack();
@@ -100,7 +100,7 @@ public class DesigningQR extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Imagen[0]=new ImageIcon (getClass().getResource("/publictransport/imagenes/codigodemo.png"));
+                Imagen[0]=new ImageIcon (getClass().getResource("/Images/codigodemo.png"));
                 jLabel1.setIcon(Imagen[0]);
             }
         });

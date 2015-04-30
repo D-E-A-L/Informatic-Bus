@@ -24,7 +24,7 @@ import DateBase.Tableo;
 public class DesigningCards extends javax.swing.JFrame {
 
     ImageIcon Imagen[]=new ImageIcon[5];
-    int cont=1; 
+    int cont=0; 
     
     public DesigningCards() {
         initComponents();
@@ -33,7 +33,7 @@ public class DesigningCards extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         for(int i=0;i<5;i++){
-            Imagen[i]=new ImageIcon (getClass().getResource("/publictransport/imagenes/card"+i+".png"));
+            Imagen[i]=new ImageIcon (getClass().getResource("/Images/card"+i+".png"));
         }
         
         jLabel1.setIcon(Imagen[0]);
@@ -113,7 +113,7 @@ public class DesigningCards extends javax.swing.JFrame {
         imprimir.add(jtxtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 270, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/card2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/card0.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(243, 153));
         imprimir.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 486, 306));
 
@@ -178,14 +178,14 @@ public class DesigningCards extends javax.swing.JFrame {
         getContentPane().add(jtxtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 32, 120, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fondo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(cont==1){
+        if(cont==0){
             cont=5;
         }
         cont--;
@@ -193,8 +193,8 @@ public class DesigningCards extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(cont==5){
-            cont=0;
+        if(cont==4){
+            cont=-1;
         }
         cont++;
         jLabel1.setIcon(Imagen[cont]);
@@ -241,7 +241,7 @@ public class DesigningCards extends javax.swing.JFrame {
         
         String cedula=jtxtcedula.getText();
         
-        jLabel2.setIcon(new ImageIcon (getClass().getResource("/publictransport/imagenes/foto.jpg")));
+        jLabel2.setIcon(new ImageIcon (getClass().getResource("/Images/foto.jpg")));
 
         String nombre=datoscliente.getNombre(cedula);
         String apellidos=datoscliente.getApellido(cedula);

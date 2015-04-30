@@ -74,7 +74,7 @@ public class Interface extends JFrame implements ActionListener {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/publictransport/imagenes/fondo.png"))); 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.png"))); 
         panelillo.getContentPane().add(jLabel1);
         
         //pack();

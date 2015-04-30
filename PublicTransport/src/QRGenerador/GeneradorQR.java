@@ -115,8 +115,8 @@ public class GeneradorQR extends javax.swing.JFrame {
             code.setBottomMargin(margeninf);
             code.setRotate(rotacion);
             code.setModuleSize(tamanio);
-                                                                                                         //src build                     
-            String imagen=System.getProperty("user.home")+"/Desktop/GitHub/Informatic-Bus/PublicTransport/build/classes/publictransport/imagenes/codigodemo.png";
+                                                                                                                           
+            String imagen=System.getProperty("user.home")+"/Desktop/GitHub/Informatic-Bus/PublicTransport/src/Images/codigodemo.png";
             code.renderBarcode(imagen);
             System.out.println("Generando QR... ... ...");
             
