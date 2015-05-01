@@ -89,7 +89,7 @@ public class DesigningCards extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("No.");
+        jLabel6.setText("Nro.");
         jLabel6.setVerifyInputWhenFocusTarget(false);
         imprimir.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 

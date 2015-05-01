@@ -229,10 +229,10 @@ public class Tableo {
     } 
 }    
     
-    public String getNombre(String buscarcedula){
+    public String getNombre(String buscarCedula){
         try {         
             PreparedStatement preparedStmt = conexion.GetConnection().prepareStatement("SELECT nombre FROM cliente where cedula = ?");          
-            preparedStmt.setString(1, buscarcedula); 
+            preparedStmt.setString(1, buscarCedula); 
             ResultSet registro=preparedStmt.executeQuery();
             if(registro.next()){
                 InputStream stream = registro.getBinaryStream(1);
@@ -265,10 +265,10 @@ public class Tableo {
         return apellido;
     }
     
-    public String getFecha(String buscarcedula){
+    public String getFecha(String buscarCedula){
         try {         
             PreparedStatement preparedStmt = conexion.GetConnection().prepareStatement("SELECT fechaNacimiento FROM cliente where cedula = ?");          
-            preparedStmt.setString(1, buscarcedula); 
+            preparedStmt.setString(1, buscarCedula); 
             ResultSet registro=preparedStmt.executeQuery();
             if(registro.next()){
                 InputStream stream = registro.getBinaryStream(1);
@@ -283,10 +283,10 @@ public class Tableo {
         return fecha;
     }
     
-    public String getTelefono(String buscarcedula){
+    public String getTelefono(String buscarCedula){
         try {         
             PreparedStatement preparedStmt = conexion.GetConnection().prepareStatement("SELECT celular FROM cliente where cedula = ?");          
-            preparedStmt.setString(1, buscarcedula); 
+            preparedStmt.setString(1, buscarCedula); 
             ResultSet registro=preparedStmt.executeQuery();
             if(registro.next()){
                 InputStream stream = registro.getBinaryStream(1);

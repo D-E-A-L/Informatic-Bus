@@ -27,7 +27,7 @@ public class Interface extends JFrame implements ActionListener {
     public JMenuItem deleteCustomer=new JMenuItem("Eliminar Cliente");
     public JMenuItem Exit=new JMenuItem("Exit");
     
-    public JMenu pestania2=new JMenu("Targuetero");
+    public JMenu pestania2=new JMenu("Tarjetero");
     public JMenuItem designingCards=new JMenuItem("Nueva Tarjeta");
     public JMenuItem designingQR=new JMenuItem("QR Tarjeta Reverso");
     
@@ -141,7 +141,7 @@ public class Interface extends JFrame implements ActionListener {
                 new DesigningCards().setVisible(true);
             }
         });
-        System.out.println("Se está pulsando targetero");
+        System.out.println("Se está pulsando tarjetero");
     }
     
     public void designerQR(){
