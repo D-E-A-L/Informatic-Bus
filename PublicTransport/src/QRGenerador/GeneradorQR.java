@@ -17,10 +17,10 @@ public class GeneradorQR extends javax.swing.JFrame {
     
     int pixeles=0;
     int resolucion=72;
-    float margenizq=0.000f;
-    float margender=0.000f;
-    float margensup=0.000f;
-    float margeninf=0.000f;
+    float margenIzq=0.000f;
+    float margenDer=0.000f;
+    float margenSup=0.000f;
+    float margenInf=0.000f;
     int rotacion=0;
     float tamanio=10.000f;
     static String texto;
@@ -109,10 +109,10 @@ public class GeneradorQR extends javax.swing.JFrame {
 
             code.setUOM(pixeles);
             code.setResolution(resolucion);
-            code.setLeftMargin(margenizq);
-            code.setRightMargin(margender);
-            code.setTopMargin(margensup);
-            code.setBottomMargin(margeninf);
+            code.setLeftMargin(margenIzq);
+            code.setRightMargin(margenDer);
+            code.setTopMargin(margenSup);
+            code.setBottomMargin(margenInf);
             code.setRotate(rotacion);
             code.setModuleSize(tamanio);
                                                                                                                            
