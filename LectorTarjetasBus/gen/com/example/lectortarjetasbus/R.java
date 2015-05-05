@@ -14,22 +14,32 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int buttonCIenviar=0x7f060006;
+        public static final int EditText01=0x7f060010;
+        public static final int buttonCIenviar=0x7f060005;
         public static final int buttonDescontar=0x7f060002;
+        public static final int buttonEnviarmsje=0x7f060009;
         public static final int buttonExit=0x7f060003;
-        public static final int buttonInicio=0x7f060009;
-        public static final int editTextCImanual=0x7f060005;
-        public static final int editTextDireccionIp=0x7f060007;
-        public static final int imageView1=0x7f06000a;
+        public static final int buttonInicio=0x7f06000d;
+        public static final int buttonScan=0x7f060007;
+        public static final int editTextCImanual=0x7f060004;
+        public static final int editTextDireccionIp=0x7f06000b;
+        public static final int editTextMsje=0x7f06000a;
+        public static final int imageView1=0x7f06000e;
+        public static final int myButton=0x7f060011;
         public static final int textView1=0x7f060000;
-        public static final int textView2=0x7f060008;
+        public static final int textView2=0x7f06000c;
         public static final int textViewCI=0x7f060001;
-        public static final int textViewQR=0x7f060004;
+        public static final int textViewIP=0x7f060008;
+        public static final int textViewIPclient=0x7f06000f;
+        public static final int textViewQR=0x7f060006;
     }
     public static final class layout {
         public static final int descuentovista=0x7f030000;
-        public static final int lectorvista=0x7f030001;
-        public static final int menuinicialvista=0x7f030002;
+        public static final int finvista=0x7f030001;
+        public static final int lectorvista=0x7f030002;
+        public static final int lectorvistaip=0x7f030003;
+        public static final int menuinicialvista=0x7f030004;
+        public static final int vistacliente=0x7f030005;
     }
     public static final class string {
         public static final int app_name=0x7f040000;

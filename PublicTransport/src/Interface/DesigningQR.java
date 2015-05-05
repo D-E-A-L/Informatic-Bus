@@ -102,6 +102,7 @@ public class DesigningQR extends javax.swing.JFrame {
             public void run() {
                 Imagen[0]=new ImageIcon (getClass().getResource("/Images/codigodemo.png"));
                 jLabel1.setIcon(Imagen[0]);
+               
             }
         });
     }//GEN-LAST:event_jButton1ActionPerformed

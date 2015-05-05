@@ -9,7 +9,7 @@ public class LectorAndroid {
     public static void main(String[] args) {
         try {
             /* Establece la conexion */
-            Socket socket = new Socket("192.168.43.197", 8888);
+            Socket socket = new Socket("10.0.0.8", 8888);
             /* Stream para enviar objetos */
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             /* Stream para recibir objetos */
