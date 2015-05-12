@@ -9,3 +9,6 @@ recuerden que para actualizar a la ultima version se usa el comando git pull
 y ultimamente para subir cambios al proyecto recuerden que es git add .
 luego el comentario con un nombre de la iteracion o avance como commit -m "nombre iteracion"
 y terminando un git push para subir los cambios al repositorio principal es git push
+
+la parte de edward se encuentra en: https://github.com/D-E-A-L/Informatic-Bus
+si alguien puede ayudarlo seria bueno....
